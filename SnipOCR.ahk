@@ -33,7 +33,14 @@
 ;
 ; ══════════════════════════════════════════════════════════════════════════════
 
-#Include OCR.ahk       ; <-- uncomment once you've downloaded Descolada's OCR.ahk
+; Descolada's OCR.ahk is vendored in this repo under OCR-2.0.0\Lib rather than
+; sitting beside ScreenSnip.ahk, so the include points at that path. (A bare
+; "#Include OCR.ahk" aborts the whole script at load with
+; '#Include file "OCR.ahk" cannot be opened.')
+; Wrapped in *i so a missing file downgrades to a silent skip instead of a
+; fatal load error — the Windows OCR menu item then just reports it isn't set
+; up, and every other ScreenSnip feature keeps working.
+#Include *i OCR-2.0.0\Lib\OCR.ahk
 
 
 ; ══════════════════════════════════════════════════════════════════════════════
